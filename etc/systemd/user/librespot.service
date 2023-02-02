@@ -1,0 +1,16 @@
+[Unit]
+Description=Librespot (an open source Spotify client)
+Documentation=https://github.com/librespot-org/librespot
+Documentation=https://github.com/librespot-org/librespot/wiki/Options
+Wants=network.target sound.target
+After=network.target sound.target
+
+[Service]
+#DynamicUser=yes
+#SupplementaryGroups=audio
+Restart=always
+RestartSec=10
+ExecStart=/usr/local/bin/librespot --name "Raspberry speaker" --backend pulseaudio --format S32 --bitrate 320 --initial-volume 50 --disable-audio-cache --device-type Speaker
+
+[Install]
+WantedBy=default.target
