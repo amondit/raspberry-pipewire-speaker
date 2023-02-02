@@ -1,0 +1,22 @@
+[Unit]
+Description=Keep a user session open
+#Requires=network-online.target
+#BindsTo=user@1000.service
+After=network.target
+
+[Service]
+ExecStart=-/sbin/mingetty --autologin ubuntu --noclear %I $TERM
+Type=idle
+Restart=always
+RestartSec=0
+UtmpIdentifier=%I
+TTYPath=/dev/%I
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+KillMode=process
+IgnoreSIGPIPE=no
+SendSIGHUP=yes
+
+[Install]
+WantedBy=multi-user.target
