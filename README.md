@@ -24,11 +24,17 @@ Tested using debian & ubuntu, installation steps are similar (//TODO add link, g
 
 It seems the most active Spotify Connect implementation, and supports pulseaudio backend (so it can talk to pipewire almost natively). Build & installation instructions are on the Librespot repo (//TODO add link). I use the `v0.4.2` release as it was the last one using the 'old' api (and work on the 'new' api was a bit fresh at time of writing).
 
+`cargo build --release --no-default-features --features pulseaudio-backend`
+
 //TODO add link to systemd user configuration example
 
 ## 3. Configure Bluez
 
 //TODO
+
+To rename the default advertised Bluetooth device name
+`bluetoothctl`
+`system-alias "Your great Raspberry speaker"`
 
 ## 4. Enable user lingering + Auto tty login
 
